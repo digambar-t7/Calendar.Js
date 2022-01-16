@@ -1,0 +1,19 @@
+#Navbar{
+    position: absolute;
+    width: fit-content;
+    transform: translate(0%,-50%);
+    top: 50%;
+}
+#Navbar > u{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+#Navbar  li{
+    list-style: none;
+    padding: 23px;
+    margin: 5px;
+    background: white;
+    border-radius: 25% 10%;
+    cursor: pointer;
+}
