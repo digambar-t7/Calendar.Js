@@ -1,0 +1,53 @@
+#Events{
+    color: white;
+    border: 1px solid white ;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 70vw;
+    padding-bottom: 3px;
+}
+#Events .heading{
+    text-align: center;
+    background: white;
+    color: red;
+    margin: -16px;
+    padding: 22px;
+    border-radius: 5px;
+    margin-bottom: -3px;
+}
+
+#events-container > div{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border-top: 1px solid;
+}
+
+#Events .left{
+    width: 40%;
+    /* border-right: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Events .right{
+    width: 60%;
+}
+#Events .date{
+    font-size: 21px;
+}
+#Events .name{
+    font-size: 21px;
+    font-weight: 600;
+    margin: 12px;
+}
+#Events .desc{
+    
+}
+#Events .date-instance{
+
+}
+#Events .instance{
+
+}
