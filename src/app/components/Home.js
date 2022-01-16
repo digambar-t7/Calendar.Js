@@ -6,6 +6,10 @@ import "../styles/Home.css"
 
 const Home = () => {
 
+    const [title, setTitle] = useState('')
+    const [desc, setDesc] = useState('')
+    const [from, setFrom] = useState(new Date())
+    const [to, setTo] = useState(new Date(1970, 0, 0))
     const [events, setEvents] = useState([
         {
             title: "Sankranti",
@@ -19,8 +23,6 @@ const Home = () => {
         }
     ])
 
-    const [date, setDate] = useState(new Date());
-
     const locales = {
         "en-IN": require("date-fns/locale/en-IN")
     }
@@ -33,9 +35,32 @@ const Home = () => {
         locales
     })
 
-    const changeDate = () => {
-        setDate(date);
+    const changeDesc = (e) => {
+        setDesc(e.target.value)
     }
+
+    const changeTitle = (e) => {
+        setTitle(e.target.value)
+    }
+
+    const handleFrom = (e) => {
+        setFrom(e.target.value)
+    }
+
+    const handleTo = (e) => {
+        setTo(e.target.value)
+    }
+
+    const addEvent = (e) => {
+        e.preventDefault()
+        setEvents([...events, {
+            title: title,
+            desc: desc,
+            start: from,
+            end: to
+        }])
+    }
+
     return (
         <div id="Home">
             <Calendar
@@ -46,13 +71,13 @@ const Home = () => {
             />
             <div id="AddEvent">
                 <h1 className="heading">#Let's add an event</h1>
-                <div className="form">
-                    <input type='text' name="title" placeholder="Event title goes here..." required />
-                    <input type='text' name="desc" placeholder="Event description goes here..." required />
-                    <span>Starts at:</span> <input type='date' name="startDate" placeholder="Event Start Date" required />
-                    <span>Ends at:</span> <input type='date' name="endDate" required />
+                <form onSubmit={addEvent}>
+                    <input value={title} onChange={changeTitle} type='text' name="title" placeholder="Event title goes here..." required />
+                    <input value={desc} onChange={changeDesc} type='text' name="desc" placeholder="Event description goes here..." required />
+                    <span>Starts at:</span><input onChange={handleFrom} type='date' name="startDate" placeholder="Event Start Date" required />
+                    <span>Ends at:</span><input onChange={handleTo} type='date' name="endDate" required />
                     <button type="submit" className="submit addEventBtn">Add</button>
-                </div>
+                </form>
             </div>
         </div >
     )

@@ -9,7 +9,7 @@
     
 }
 
-#AddEvent .form{
+#AddEvent form{
     display: flex;
     justify-content: space-evenly;
 }
