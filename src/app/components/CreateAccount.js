@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import '../styles/Login.css'
 
-const Login = () => {
+const CreateAccount = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [cnfmpassword, setCnfmPassword] = useState('')
 
     const changeUsername = (e) => {
         setUsername(e.target.value)
@@ -14,23 +13,27 @@ const Login = () => {
     const changePassword = (e) => {
         setPassword(e.target.value)
     }
+    const changeCnfmPassword = (e) => {
+        setCnfmPassword(e.target.value)
+    }
 
     return (
         <section id='Login'>
             <form action="/" method="post">
                 <h1 className="login-heading">Calendar.js</h1>
                 <div className="container">
-                    <label htmlFor="uname" className='entries' >Username</label>
+                    <label htmlFor="uname" className='entries' >Enter Username</label>
                     <input type="text" placeholder="Enter Username" name="uname" value={username} onChange={changeUsername} required />
 
-                    <label htmlFor="psw" className='entries'>Password</label>
+                    <label htmlFor="psw" className='entries'>Enter Password</label>
                     <input type="password" placeholder="Enter Password" name="psw" value={password} onChange={changePassword} required />
+                    <label htmlFor="cnfmpsw" className='entries'>Confirm Password</label>
+                    <input type="password" placeholder="Enter Password" name="cnfmpsw" value={cnfmpassword} onChange={changeCnfmPassword} required />
 
                 </div>
 
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-                    <button type="submit">Login</button>
-                    <span className="psw"><Link to='/login/createaccount' className='createacc'>Create new Account</Link></span>
+                    <button id='signup' type="submit">Signup</button>
                 </div>
 
             </form>
@@ -39,4 +42,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default CreateAccount
