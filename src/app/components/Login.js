@@ -29,7 +29,7 @@ const Login = () => {
                 </div>
 
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-                    <button type="submit">Login</button>
+                    <button type="submit" className='submit'>Login</button>
                     <span className="psw"><Link to='/login/createaccount' className='createacc'>Create new Account</Link></span>
                 </div>
 

@@ -33,7 +33,7 @@ const CreateAccount = () => {
                 </div>
 
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
-                    <button id='signup' type="submit">Signup</button>
+                    <button id='signup' className='submit' type="submit">Signup</button>
                 </div>
 
             </form>

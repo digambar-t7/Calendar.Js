@@ -3,8 +3,8 @@ import '../styles/Dashboard.css'
 
 const Dashboard = () => {
     return (
-        <div>
-            thisis dashboard
+        <div id='Dashboard'>
+            Work in Progress...
         </div>
     )
 }

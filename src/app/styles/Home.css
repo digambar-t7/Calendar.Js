@@ -1,9 +1,36 @@
 #Home{
-    padding: 10px;
+    padding: 20px;
     border-radius: 26px;
     background: white;
+    width: 66vw;
 }
 
-.react-calendar{
-    border: none;
+#AddEvent .heading{
+    
+}
+
+#AddEvent .form{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#AddEvent input{
+    cursor: pointer;
+}
+
+#AddEvent span{
+    display: flex;
+    align-items: center;
+}
+
+#AddEvent .addEventBtn{
+    width: fit-content;
+    padding: 8px 16px;
+}
+
+.rbc-calendar{
+    height: 400px;
+    width: 800px;
+    border: 1px solid;
+    margin: auto;
 }

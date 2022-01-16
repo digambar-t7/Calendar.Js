@@ -4,6 +4,7 @@
 
 body{
   background-color: #ff3939;
+  background-color: rgb(250, 199, 199);
   margin: 0;
   padding: 0;
 }
@@ -13,7 +14,6 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 73vw;
+  max-width: 80vw;
   padding: 10px;
-  /* border: 1px solid; */
 }
