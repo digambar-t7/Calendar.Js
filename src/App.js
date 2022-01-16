@@ -1,9 +1,24 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './app/components/Navbar';
+import Home from './app/components/Home';
+import Events from './app/components/Events';
+import Dashboard from './app/components/Dashboard';
+import Login from './app/components/Login';
 
 function App() {
   return (
-    <Navbar />
+    <BrowserRouter>
+      <Navbar />
+      <div id='outer-div'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/events' element={<Events />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/adminpanel' element={<Dashboard />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

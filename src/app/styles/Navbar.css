@@ -1,5 +1,5 @@
 #Navbar{
-    position: absolute;
+    position: fixed;
     width: fit-content;
     transform: translate(0%,-50%);
     top: 50%;
@@ -16,4 +16,10 @@
     background: white;
     border-radius: 25% 10%;
     cursor: pointer;
+}
+
+#Navbar li a{
+    text-decoration: none;
+    color: grey;
+    font-size: 19px;
 }
