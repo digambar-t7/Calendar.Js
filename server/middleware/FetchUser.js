@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const jwtSecret = 'shhhhhhh'
 
 const FetchUser = (req, res, next) => {
+    let success = false
     // trying to get token stored in request's header
     const token = req.header('auth-token')
 
@@ -11,20 +12,20 @@ const FetchUser = (req, res, next) => {
     if (!token) {
         res
             .status(401)
-            .send({ error: 'Please authenticate yourself' })
+            .send({ success, error: 'Please authenticate yourself' })
     }
 
     try {
         // getting data linked with this token
         const jwtData = jwt.verify(token, jwtSecret)
 
-        // appending user details in the res 
-        res.user = jwtData.user
+        // appending user details in the request itself 
+        req.user = jwtData.user
 
         // calling the next function
         next()
     } catch (e) {
-        res.status(401).send({ error: e })
+        res.status(401).send({ success, error: e })
     }
 
 }

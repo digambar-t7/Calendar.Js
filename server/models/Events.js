@@ -2,6 +2,10 @@ const { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 
 const EventsSchema = new Schema({
+    userid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+    },
     title: {
         type: String,
         unique: true,
