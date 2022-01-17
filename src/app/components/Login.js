@@ -15,9 +15,23 @@ const Login = () => {
         setPassword(e.target.value)
     }
 
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        const response = await fetch("http://localhost:3131/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        })
+        const json = await response.json()
+        console.log(json)
+        localStorage.setItem('token', json.token)
+    }
+
     return (
         <section id='Login'>
-            <form action="/" method="post">
+            <form onSubmit={handleLogin}>
                 <h1 className="login-heading">Calendar.js</h1>
                 <div className="container">
                     <label htmlFor="email" className='entries' >Email</label>
