@@ -4,11 +4,11 @@ import '../styles/Login.css'
 
 const Login = () => {
 
-    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const changeUsername = (e) => {
-        setUsername(e.target.value)
+    const changeEmail = (e) => {
+        setEmail(e.target.value)
     }
 
     const changePassword = (e) => {
@@ -20,11 +20,11 @@ const Login = () => {
             <form action="/" method="post">
                 <h1 className="login-heading">Calendar.js</h1>
                 <div className="container">
-                    <label htmlFor="uname" className='entries' >Username</label>
-                    <input type="text" placeholder="Enter Username" name="uname" value={username} onChange={changeUsername} required />
+                    <label htmlFor="email" className='entries' >Email</label>
+                    <input type="text" placeholder="Enter Email" name="email" value={email} onChange={changeEmail} required />
 
-                    <label htmlFor="psw" className='entries'>Password</label>
-                    <input type="password" placeholder="Enter Password" name="psw" value={password} onChange={changePassword} required />
+                    <label htmlFor="password" className='entries'>Password</label>
+                    <input type="password" placeholder="Enter Password" name="password" value={password} onChange={changePassword} required />
 
                 </div>
 

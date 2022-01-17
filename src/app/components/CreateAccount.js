@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 
 const CreateAccount = () => {
 
-    const [username, setUsername] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [cnfmpassword, setCnfmPassword] = useState('')
 
-    const changeUsername = (e) => {
-        setUsername(e.target.value)
+    const changeName = (e) => {
+        setName(e.target.value)
     }
-
+    const changeEmail = (e) => {
+        setEmail(e.target.value)
+    }
     const changePassword = (e) => {
         setPassword(e.target.value)
     }
@@ -22,11 +25,13 @@ const CreateAccount = () => {
             <form action="/" method="post">
                 <h1 className="login-heading">Calendar.js</h1>
                 <div className="container">
-                    <label htmlFor="uname" className='entries' >Enter Username</label>
-                    <input type="text" placeholder="Enter Username" name="uname" value={username} onChange={changeUsername} required />
+                    <label htmlFor="name" className='entries' >Enter Name</label>
+                    <input type="text" placeholder="Enter Name" name="name" value={name} onChange={changeName} required />
+                    <label htmlFor="email" className='entries' >Enter EmailId</label>
+                    <input type="email" placeholder="Enter EmailId" name="email" value={email} onChange={changeEmail} required />
 
-                    <label htmlFor="psw" className='entries'>Enter Password</label>
-                    <input type="password" placeholder="Enter Password" name="psw" value={password} onChange={changePassword} required />
+                    <label htmlFor="password" className='entries'>Enter Password</label>
+                    <input type="password" placeholder="Enter Password" name="password" value={password} onChange={changePassword} required />
                     <label htmlFor="cnfmpsw" className='entries'>Confirm Password</label>
                     <input type="password" placeholder="Enter Password" name="cnfmpsw" value={cnfmpassword} onChange={changeCnfmPassword} required />
 
