@@ -33,6 +33,7 @@
 }
 #Events .right{
     width: 60%;
+    max-height: 93px;
 }
 #Events .date{
     font-size: 21px;
@@ -42,12 +43,61 @@
     font-weight: 600;
     margin: 12px;
 }
-#Events .desc{
-    
+#Events .icons{
+    position: relative;
+    top: -83px;
+    right: -247px;    
 }
-#Events .date-instance{
-
+#Events .icons > img{
+    width: 27px;
+    cursor: pointer;
+    margin: 3px;
 }
-#Events .instance{
 
+#Events .update{
+    position: fixed;
+    border: 1px solid black;
+    background: white;
+    top: -18%;
+    right: -18%;
+    height: 16rem;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 22rem;
+    padding: 14px;
+}
+#Events .update span{
+    color: black;
+}
+#Events .update >h1 {
+    color: black;
+    font-size: 18px;
+    font-weight: 200;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+}
+#Events .update >h1 img {
+    width: 15px;
+    position: absolute;
+    top: 15px;
+    right: 23px;
+}
+#Events .updateEntry{
+    margin: 6px 0;
+}
+#Events input{
+    height: 27px;
+    border-radius: 7px;
+    border: 1px solid;
+    margin-left: 21px;
+}
+#Events .submit{
+    padding: 10px;
+    width: 27%;
+    position: relative;
+    left: 37%;
 }

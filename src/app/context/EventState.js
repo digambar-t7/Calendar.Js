@@ -34,8 +34,41 @@ const EventState = (props) => {
         read()
     }
 
+    // DELETE an event
+    const deleteEvent = async (id) => {
+        const response = await fetch(`${url}/deleteevent/${id}`, {
+            method: "DELETE",
+            headers: {
+                "auth-token": localStorage.getItem('token')
+            }
+        })
+        const json = await response.json()
+        console.log(json)
+        if (json.success) {
+            alert(`Successfully deleted event ${json.deleteEvent}`)
+            read()
+        } else {
+            alert('Deleting event failed')
+        }
+    }
+
+    // UPDATE an event
+    const update = async (eid, etitle, edesc, estart, eend) => {
+        const response = await fetch(`${url}/updateevent/${eid}`, {
+            method: "PUT",
+            headers: {
+                "auth-token": localStorage.getItem('token'),
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ etitle, edesc, estart, eend })
+        })
+        // const json = await response.json()
+        read()
+
+    }
+
     return (
-        <EventContext.Provider value={{ events, read, create }}>
+        <EventContext.Provider value={{ events, setEvents, read, create, deleteEvent }}>
             {props.children}
         </EventContext.Provider>
     )
