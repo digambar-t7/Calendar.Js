@@ -39,7 +39,7 @@ router.put('/updateevent/:eventId', FetchUser, async (req, res) => {
     try {
         let event = await Events.findById(req.params.eventId)
         // not allowing users to update others events
-        if (req.params.eventId !== event.userid) {
+        if (req.user.id !== event.userid.toString()) {
             return res.status(500).json({ success, msg: "You are unauthorized" })
         }
         // get fields to be updated from req.body

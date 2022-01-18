@@ -53,22 +53,22 @@ const EventState = (props) => {
     }
 
     // UPDATE an event
-    const update = async (eid, etitle, edesc, estart, eend) => {
-        const response = await fetch(`${url}/updateevent/${eid}`, {
+    const update = async (id, title, desc, start, end) => {
+        const response = await fetch(`${url}/updateevent/${id}`, {
             method: "PUT",
             headers: {
                 "auth-token": localStorage.getItem('token'),
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({ etitle, edesc, estart, eend })
+            body: JSON.stringify({ title, desc, start, end })
         })
-        // const json = await response.json()
+        const json = await response.json()
+        console.log(json)
         read()
-
     }
 
     return (
-        <EventContext.Provider value={{ events, setEvents, read, create, deleteEvent }}>
+        <EventContext.Provider value={{ events, setEvents, read, create, deleteEvent, update }}>
             {props.children}
         </EventContext.Provider>
     )

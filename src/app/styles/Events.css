@@ -60,12 +60,14 @@
     background: white;
     top: -18%;
     right: -18%;
-    height: 16rem;
+    height: fit-content;
     display: flex;
     border-radius: 10px;
     flex-direction: column;
     width: 22rem;
     padding: 14px;
+    box-shadow: 0 18px 53px 0 rgba(0, 0, 0, 0.1);
+    display: none;
 }
 #Events .update span{
     color: black;
@@ -85,6 +87,7 @@
     position: absolute;
     top: 15px;
     right: 23px;
+    cursor: pointer;
 }
 #Events .updateEntry{
     margin: 6px 0;
