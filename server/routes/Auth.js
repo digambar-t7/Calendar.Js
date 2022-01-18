@@ -56,7 +56,7 @@ router.post('/createaccount',
             // creating a jwt-token with jwtData & jwtSecret
             const token = jwt.sign(jwtData, jwtSecret)
 
-            return res.json({ token })
+            return res.json({ token, username: user.name })
 
         } catch (e) {
             return res.status(500)

@@ -1,27 +1,19 @@
-import React, { useState } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { format, parse, startOfWeek, getDay } from "date-fns";
 import "../styles/Home.css"
+import EventContext from "../context/EventContext";
 
 const Home = () => {
-
-    const [title, setTitle] = useState('')
-    const [desc, setDesc] = useState('')
-    const [from, setFrom] = useState(new Date())
-    const [to, setTo] = useState(new Date(1970, 0, 0))
-    const [events, setEvents] = useState([
-        {
-            title: "Sankranti",
-            start: new Date(2022, 0, 1),
-            end: new Date(2022, 0, 1)
-        },
-        {
-            title: "Republic Day",
-            start: new Date(2022, 0, 26),
-            end: new Date(2022, 0, 26)
-        }
-    ])
+    const context = useContext(EventContext)
+    const { events, setEvents, read, create } = context
+    const [event, setEvent] = useState({
+        title: '',
+        desc: '',
+        from: new Date().now,
+        to: new Date().now
+    })
 
     const locales = {
         "en-IN": require("date-fns/locale/en-IN")
@@ -35,31 +27,19 @@ const Home = () => {
         locales
     })
 
-    const changeDesc = (e) => {
-        setDesc(e.target.value)
-    }
-
-    const changeTitle = (e) => {
-        setTitle(e.target.value)
-    }
-
-    const handleFrom = (e) => {
-        setFrom(e.target.value)
-    }
-
-    const handleTo = (e) => {
-        setTo(e.target.value)
+    const handleEvent = (e) => {
+        setEvent({ ...event, [e.target.name]: e.target.value })
     }
 
     const addEvent = (e) => {
         e.preventDefault()
-        setEvents([...events, {
-            title: title,
-            desc: desc,
-            start: from,
-            end: to
-        }])
+        const { title, desc, from, to } = event
+        create(title, desc, from, to)
     }
+
+    useEffect(() => {
+        read()
+    }, [])
 
     return (
         <div id="Home">
@@ -72,10 +52,10 @@ const Home = () => {
             <div id="AddEvent">
                 <h1 className="heading">#Let's add an event</h1>
                 <form onSubmit={addEvent}>
-                    <input value={title} onChange={changeTitle} type='text' name="title" placeholder="Event title goes here..." required />
-                    <input value={desc} onChange={changeDesc} type='text' name="desc" placeholder="Event description goes here..." required />
-                    <span>Starts at:</span><input onChange={handleFrom} type='date' name="startDate" placeholder="Event Start Date" required />
-                    <span>Ends at:</span><input onChange={handleTo} type='date' name="endDate" required />
+                    <input value={event.title} onChange={handleEvent} type='text' name="title" placeholder="Event title goes here..." required />
+                    <input value={event.desc} onChange={handleEvent} type='text' name="desc" placeholder="Event description goes here..." required />
+                    <span>Starts at:</span><input onChange={handleEvent} type='date' name="from" required />
+                    <span>Ends at:</span><input onChange={handleEvent} type='date' name="to" required />
                     <button type="submit" className="submit addEventBtn">Add</button>
                 </form>
             </div>

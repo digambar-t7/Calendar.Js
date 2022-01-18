@@ -6,21 +6,24 @@ import Events from './app/components/Events';
 import Dashboard from './app/components/Dashboard';
 import Login from './app/components/Login';
 import CreateAccount from './app/components/CreateAccount';
+import EventState from './app/context/EventState';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <div id='outer-div'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/events' element={<Events />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/login/createaccount' element={<CreateAccount />} />
-          <Route path='/adminpanel' element={<Dashboard />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <EventState>
+      <BrowserRouter>
+        <Navbar />
+        <div id='outer-div'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/events' element={<Events />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/login/createaccount' element={<CreateAccount />} />
+            <Route path='/adminpanel' element={<Dashboard />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </EventState>
   );
 }
 

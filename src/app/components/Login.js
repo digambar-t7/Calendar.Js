@@ -25,8 +25,10 @@ const Login = () => {
             body: JSON.stringify({ email, password })
         })
         const json = await response.json()
-        console.log(json)
-        localStorage.setItem('token', json.token)
+        if (json.success) {
+            localStorage.setItem('token', json.token)
+            alert(`Welcome ${json.username.toUpperCase()}`)
+        }
     }
 
     return (

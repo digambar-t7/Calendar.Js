@@ -24,7 +24,12 @@ const CreateAccount = () => {
             body: JSON.stringify({ name, email, password })
         })
         const json = await response.json()
-        localStorage.setItem('token', json.token)
+        console.log(json.username)
+        if (json.success) {
+            localStorage.setItem('token', json.token)
+        } else {
+            alert(json.error)
+        }
     }
 
     return (
